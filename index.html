@@ -14,12 +14,47 @@
         <nav>Highscore</nav>
     </header>
     <main>
-        <h1>JavaScript Quiz</h1>
-        <p>Click the "Start" button to start the timed quiz. When you answer a question, a new question will appear. If
-            you answer a question incorrectly, then time is subtracted from the clock. The quiz will end once all
-            questions are answered or the timer reaches 0. When the quiz ends, you will be asked to enter your initials
-            and you will see your score.</p>
-        <button>Start</button>
+        <section id="home">
+            <h1>JavaScript Quiz</h1>
+            <p>Click the "Start" button to start the timed quiz. When you answer a question, a new question
+                will appear. If you answer a question incorrectly, then time is subtracted from the clock. The quiz will
+                end once all questions are answered or the timer reaches 0. When the quiz ends, you will be asked to
+                enter
+                your initials and you will see your score.</p>
+            <button id="start">Start</button>
+        </section>
+        <section id="quiz">
+            <h2 class="timer"></h2>
+            <p id="question"></p>
+            <form class="options">
+                <label class="answer">
+                    <input type="button">
+                </label>
+                <label class="answer">
+                    <input type="button">
+                </label>
+                <label class="answer">
+                    <input type="button">
+                </label>
+                <label class="answer">
+                    <input type="button">
+                </label>
+            </form>
+        </section>
+        <section id="score">
+            <h3>Score</h3>
+            <p id="final"></p>
+            <form>
+                <label id="initials"> Enter your initials:
+                    <input type="text">
+                </label>
+                <button id="submit">Submit</button>
+        </section>
+        <section id="highscores">
+            <h4>Highscores</h4>
+            <button id="retake">Retake Quiz</button>
+            <button id="clear">Clear Scores</button>
+        </section>
     </main>
     <script src="assets/js/script.js"></script>
 </body>
