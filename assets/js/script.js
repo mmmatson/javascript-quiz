@@ -1,12 +1,21 @@
 //Declare variables
 var timer;
-var home;
 var timerCount = document.getElementById('timer');
 var startButton = document.getElementById('start');
-var retakeButton = document.getElementById('retake')
+var submitButton = document.getElementById('retake');
+var retakeButton = document.getElementById('retake');
+var clearButton = document.getElementById('clear');
+var highscoresButton = document.getElementById('highscores-button');
+
+//Declare all sections aside from home section hidden to start
+document.getElementById("home").hidden = false;
+document.getElementById("quiz").hidden = true;
+document.getElementById("score").hidden = true;
+document.getElementById("highscores").hidden = true;
+
 
 //Declare function to start timer countdown when "start" button clicked
-startButton.addEventListener("click", function startTimer(event) {
+startButton.addEventListener("click", function startTimer() {
     //Set timer to start at 30 seconds
     var sec = 30;
     //When start button clicked again, timer reset to 30 seconds
@@ -18,26 +27,35 @@ startButton.addEventListener("click", function startTimer(event) {
     }, 1000)
 })
 
-//Declare function to hide "home" page when "start" button clicked
-startButton.addEventListener("click", function hideHome() {
-    if (home == 1) {
-        document.getElementById('home').style.display = 'inline';
-        return home = 0;
-    }
-    else {
-        document.getElementById('home').style.display = 'none';
-        return home = 1;
-    }
-})
+//Clicking "highscores" button hides home section and makes highscores section visible
+highscoresButton.addEventListener("click", () => {
+    document.getElementById("home").hidden = true;
+    document.getElementById("quiz").hidden = true;
+    document.getElementById("score").hidden = true;
+    document.getElementById("highscores").hidden = false;
+}, false);
 
-//Declare function to show "home" page when "retake quiz" button clicked
-retakeButton.addEventListener("click", function showHome() {
-    if (home == 0) {
-        document.getElementById('home').style.display = 'none';
-        return home = 1;
-    }
-    else {
-        document.getElementById('home').style.display = 'inline';
-        return home = 0;
-    }
-})
+//Clicking "start" button hides home section and makes quiz section visible
+startButton.addEventListener("click", () => {
+    document.getElementById("home").hidden = true;
+    document.getElementById("quiz").hidden = false;
+    document.getElementById("score").hidden = true;
+    document.getElementById("highscores").hidden = true;
+}, false);
+
+//Clicking "submit" button hides score section and makes highscores section visible
+submitButton.addEventListener("click", () => {
+    document.getElementById("home").hidden = true;
+    document.getElementById("quiz").hidden = true;
+    document.getElementById("score").hidden = true;
+    document.getElementById("highscores").hidden = false;
+}, false);
+
+//Clicking "retake quiz" button hides highscores section and makes home section visible
+retakeButton.addEventListener("click", () => {
+    document.getElementById("home").hidden = false;
+    document.getElementById("quiz").hidden = true;
+    document.getElementById("score").hidden = true;
+    document.getElementById("highscores").hidden = true;
+}, false);
+
