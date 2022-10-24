@@ -10,8 +10,6 @@
 </head>
 
 <body>
-    <div><a href="highscores.html">Highscores</a>
-    </div>
     <div>
         <h1 class="timer"><span id="timer">Timer: 0</span></h1>
     </div>
@@ -33,12 +31,17 @@
         <div id="score" class="hide">
             <h4 id="final">Final Score!</h4>
             <p>
-                Enter your initials: <input type="text" id="initials" />
-                <button id="submit" href="highscores.html">Submit</button>
-            </p>
+                Enter your initials: </p>
+            <input type="text" id="initials" />
+            <button id="submit">Submit</button>
+        </div>
+        <div id="highscores-page" class="hide">
+            <p id="highscores"></p>
+            <button id="clear">Clear Scores</button>
+            <a href="https://mmmatson.github.io/javascript-quiz">Take Quiz</a>
         </div>
     </div>
-    <script src="assets/js/script.js"></script>
+    <script src="assets/js/script.js">localStorage</script>
 </body>
 
 </html>
