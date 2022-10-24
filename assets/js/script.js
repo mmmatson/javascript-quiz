@@ -29,6 +29,7 @@ var questions = [
 
 //Define variables
 var timer;
+var time = questions.length * 5;
 var timerCount = document.getElementById('timer');
 var startButton = document.getElementById('start');
 var submitButton = document.getElementById('submit');
@@ -39,16 +40,26 @@ var scorePage = document.getElementById("score");
 var questionEl = document.getElementById('question');
 var optionButtonsEl = document.getElementById('options-container');
 
-//Declare function to start timer countdown when "start" button clicked
-startButton.addEventListener("click", function startTimer() {
-    //Set timer to start at 30 seconds
-    var sec = 30;
-    //When start button clicked again, timer reset to 30 seconds
-    clearInterval(timer);
-    //Set timer to countdown and display timer countdown on screen
-    timer = setInterval(() => {
-        timerCount.innerHTML = sec + ' seconds left';
-        sec--;
-    }, 1000)
-})
+//Define clock function - time decreases and is shown on screen
+function clock() {
+    time--;
+    timerCount.textContent = time;
+    //Call endGame function if time is 0 or less
+    if (time <= 0) {
+        endGame();
+    }
+}
+//Define start game function
+function startGame() {
+    //Hide homepage by adding "hide" class attribute 
+    homePage.setAttribute('class', 'hide');
+    //Show quiz page by removing "hide" class attribute 
+    quizPage.removeAttribute('class');
+    //Call clock function to countdown 
+    timer = setInterval(clock, 1000);
+    //Call getQuestion function
+    getQuestion();
+}
 
+//Execute startGame function when start button clicked
+startButton.addEventListener("click", startGame);
