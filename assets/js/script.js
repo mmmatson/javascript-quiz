@@ -43,9 +43,28 @@ var optionButtonsEl = document.getElementById('options-container');
 
 //Define getQuestion function
 function getQuestion() {
+    //Clear content from question element
+    questionEl.innerHTML = "";
     //Get and show current question from questions array based on questionIndex
     var currentQuestion = questions[questionIndex];
     questionEl.textContent = currentQuestion.question;
+    //Clear content from options container div
+    optionButtonsEl.innerHTML = "";
+    //For loop to add options from options array for question
+    for (let i = 0; i < currentQuestion.options.length; i++) {
+        //Define each option as the current question's options
+        var option = currentQuestion.options[i];
+        //Create option buttons
+        var optionBtn = document.createElement('button');
+        //Assign the value of each option button to be an option from the current question
+        optionBtn.setAttribute('value', option);
+        //Create and assign a class called "options" to each button
+        optionBtn.setAttribute('class', 'options');
+        //Show option from options array on option button             
+        optionBtn.textContent = option;
+        //Append each option button to the options-container div
+        optionButtonsEl.appendChild(optionBtn);
+    }
 }
 
 //Define clock function - time decreases and is shown on screen
