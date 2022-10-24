@@ -2,17 +2,13 @@
 var timer;
 var timerCount = document.getElementById('timer');
 var startButton = document.getElementById('start');
-var submitButton = document.getElementById('retake');
-var retakeButton = document.getElementById('retake');
+var submitButton = document.getElementById('submit');
 var clearButton = document.getElementById('clear');
-var highscoresButton = document.getElementById('highscores-button');
-
-//Declare all sections aside from home section hidden to start
-document.getElementById("home").hidden = false;
-document.getElementById("quiz").hidden = true;
-document.getElementById("score").hidden = true;
-document.getElementById("highscores").hidden = true;
-
+var homePage = document.getElementById("home");
+var quizPage = document.getElementById("quiz");
+var scorePage = document.getElementById("score");
+var questionEl = document.getElementById('question');
+var optionButtonsEl = document.getElementById('options-container');
 
 //Declare function to start timer countdown when "start" button clicked
 startButton.addEventListener("click", function startTimer() {
@@ -26,36 +22,4 @@ startButton.addEventListener("click", function startTimer() {
         sec--;
     }, 1000)
 })
-
-//Clicking "highscores" button hides home section and makes highscores section visible
-highscoresButton.addEventListener("click", () => {
-    document.getElementById("home").hidden = true;
-    document.getElementById("quiz").hidden = true;
-    document.getElementById("score").hidden = true;
-    document.getElementById("highscores").hidden = false;
-}, false);
-
-//Clicking "start" button hides home section and makes quiz section visible
-startButton.addEventListener("click", () => {
-    document.getElementById("home").hidden = true;
-    document.getElementById("quiz").hidden = false;
-    document.getElementById("score").hidden = true;
-    document.getElementById("highscores").hidden = true;
-}, false);
-
-//Clicking "submit" button hides score section and makes highscores section visible
-submitButton.addEventListener("click", () => {
-    document.getElementById("home").hidden = true;
-    document.getElementById("quiz").hidden = true;
-    document.getElementById("score").hidden = true;
-    document.getElementById("highscores").hidden = false;
-}, false);
-
-//Clicking "retake quiz" button hides highscores section and makes home section visible
-retakeButton.addEventListener("click", () => {
-    document.getElementById("home").hidden = false;
-    document.getElementById("quiz").hidden = true;
-    document.getElementById("score").hidden = true;
-    document.getElementById("highscores").hidden = true;
-}, false);
 
