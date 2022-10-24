@@ -10,52 +10,34 @@
 </head>
 
 <body>
-    <header class = home id="home">
-        <nav>
-            <button id="highscores-button">Highscores</button>
-        </nav>
-        <h1>JavaScript Quiz</h1>
-        <p>Click the "Start" button to start the timed quiz. When you answer a question, a new question
-            will appear. If you answer a question incorrectly, then time is subtracted from the clock. The quiz will
-            end once all questions are answered or the timer reaches 0. When the quiz ends, you will be asked to
-            enter
-            your initials and you will see your score.</p>
-        <button id="start">Start</button>
-    </header>
-    <main>
-        <section id="quiz">
-            <h2 id="timer">Timer</h2>
-            <form class="question">
-                <p></p>
-                <label class="answer">
-                    <input type="button">
-                </label>
-                <label class="answer">
-                    <input type="button">
-                </label>
-                <label class="answer">
-                    <input type="button">
-                </label>
-                <label class="answer">
-                    <input type="button">
-                </label>
-            </form>
-        </section>
-        <section id="score">
-            <h3>Score</h3>
-            <p id="final"></p>
-            <form>
-                <label id="initials"> Enter your initials:
-                    <input type="text">
-                </label>
-                <button id="submit">Submit</button>
-        </section>
-        <section id="highscores">
-            <h4>Highscores</h4>
-            <button id="retake">Retake Quiz</button>
-            <button id="clear">Clear Scores</button>
-        </section>
-    </main>
+    <div><a href="highscores.html">Highscores</a>
+    </div>
+    <div>
+        <h1 class="timer"><span id="timer">Timer: 0</span></h1>
+    </div>
+    <div>
+        <div id="home">
+            <h2>JavaScript Quiz</h2>
+            <p>Click the "Start" button to start the timed quiz. When you answer a question, a new question
+                will appear. If you answer a question incorrectly, then time is subtracted from the clock. The quiz
+                will
+                end once all questions are answered or the timer reaches 0. When the quiz ends, you will be asked to
+                enter
+                your initials and you will see your score.</p>
+            <button id="start">Start</button>
+        </div>
+        <div id="quiz" class="hide">
+            <h3 id="question">Questions</h3>
+            <div id="options-container">Buttons</div>
+        </div>
+        <div id="score" class="hide">
+            <h4 id="final">Final Score!</h4>
+            <p>
+                Enter your initials: <input type="text" id="initials" />
+                <button id="submit" href="highscores.html">Submit</button>
+            </p>
+        </div>
+    </div>
     <script src="assets/js/script.js"></script>
 </body>
 
