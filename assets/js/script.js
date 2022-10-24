@@ -1,4 +1,33 @@
-//Declare variables
+//Define questions array with question, options arrays, and answer
+var questions = [
+    {
+        question: 'Which of the following is used to define a variable in JavaScript?',
+        options: ['var', 'let', 'const', 'all of the above'],
+        answer: 'all of the above',
+    },
+    {
+        question: 'Which of the following will allow users to type in a written response?',
+        options: ['alert()', 'confirm()', 'prompt()', 'all of the above'],
+        answer: 'prompt()',
+    },
+    {
+        question: 'Which of the following would be ignored by JavaScript?',
+        options: ['/*comment*/', '<!-- comment -->', '//comment', '/*comment*/ and //comment'],
+        answer: '/*comment*/ and //comment',
+    },
+    {
+        question: 'Which function is used to serialize an object into a JSON string in JavaScript?',
+        options: ['convert()', 'parse()', 'stringify()', 'none of the above'],
+        answer: 'stringify()',
+    },
+    {
+        question: 'What is used to stop an interval timer in JavaScript?',
+        options: ['clearInterval()', 'clearTimer()', 'stopInterval()', 'stopInterval()'],
+        answer: 'clearInterval()',
+    },
+]
+
+//Define variables
 var timer;
 var timerCount = document.getElementById('timer');
 var startButton = document.getElementById('start');
