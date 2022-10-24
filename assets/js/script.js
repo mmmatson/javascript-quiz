@@ -30,6 +30,7 @@ var questions = [
 //Define variables
 var timer;
 var time = questions.length * 5;
+var questionIndex = 0;
 var timerCount = document.getElementById('timer');
 var startButton = document.getElementById('start');
 var submitButton = document.getElementById('submit');
@@ -39,6 +40,13 @@ var quizPage = document.getElementById("quiz");
 var scorePage = document.getElementById("score");
 var questionEl = document.getElementById('question');
 var optionButtonsEl = document.getElementById('options-container');
+
+//Define getQuestion function
+function getQuestion() {
+    //Get and show current question from questions array based on questionIndex
+    var currentQuestion = questions[questionIndex];
+    questionEl.textContent = currentQuestion.question;
+}
 
 //Define clock function - time decreases and is shown on screen
 function clock() {
