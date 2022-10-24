@@ -38,8 +38,11 @@ var clearButton = document.getElementById('clear');
 var homePage = document.getElementById("home");
 var quizPage = document.getElementById("quiz");
 var scorePage = document.getElementById("score");
+var highscorePage = document.getElementById("highscores-page");
 var questionEl = document.getElementById('question');
 var optionButtonsEl = document.getElementById('options-container');
+var initials = document.getElementById("initials");
+var highscores = document.getElementById("highscores");
 
 //Define endGame function
 function endGame() {
@@ -115,5 +118,49 @@ function startGame() {
     getQuestion();
 }
 
+//Define save initials function
+function saveInitials() {
+    // Save data as an object
+    var userInitials = {
+        initials: initials.value.trim(),
+    };
+    // Use .setItem() to store object in storage and JSON.stringify to convert it as a string
+    localStorage.setItem("userInitials", JSON.stringify(userInitials));
+}
+
+//Define render initials function
+function renderInitials() {
+    // Use JSON.parse() to convert text to JavaScript object
+    var lastUser = JSON.parse(localStorage.getItem("userInitials"));
+    // Check if data is returned, if not exit out of the function
+    if (lastUser !== null) {
+        document.getElementById("highscores").innerText = lastUser.initials;
+    } else {
+        return;
+    }
+}
+
 //Execute startGame function when start button clicked
 startButton.addEventListener("click", startGame);
+
+//Clicking submit button executes save initials and render initials functions
+submitButton.addEventListener("click", function (event) {
+    event.preventDefault();
+    saveInitials();
+    renderInitials();
+    //Hide quiz page and show score page when end game function called
+    scorePage.setAttribute('class', 'hide');
+    highscorePage.removeAttribute('class');
+});
+
+// The init() function fires when the page is loaded 
+function init() {
+    // When the init function is executed, the code inside renderInitials function will also execute
+    renderInitials();
+}
+init();
+
+//clear local storage when "clear" button clicked
+clearButton.addEventListener('click', () => {
+    window.localStorage.clear();
+})
