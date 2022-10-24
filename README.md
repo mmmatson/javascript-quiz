@@ -10,7 +10,7 @@ N/A
 
 ## Usage
 
-[Placeholder for final website screenshot and link]
+![website with timer, instructions, and start button for JavaScript quiz](assets/images/javascript-quiz-screenshot.png)
 
 [Deployed website] (https://mmmatson.github.io/javascript-quiz/)
 
