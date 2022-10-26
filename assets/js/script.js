@@ -52,51 +52,34 @@ function endGame() {
     //freeze timer when endGame function called
     clearInterval(timer);
 }
-//Define getQuestion function
 function getQuestion() {
-    //Run function if condition evaluates to be true
-    if (questionIndex <= 5) {
-        //Clear content from question element
-        questionEl.innerHTML = "";
-        //Get and show current question from questions array based on questionIndex
-        var currentQuestion = questions[questionIndex];
-        questionEl.textContent = currentQuestion.question;
-        //Clear content from options container div
-        optionButtonsEl.innerHTML = "";
-        //For loop to add options from options array for question
-        for (let i = 0; i < currentQuestion.options.length; i++) {
-            //Define each option as the current question's options
-            var option = currentQuestion.options[i];
-            //Create option buttons
-            var optionBtn = document.createElement('button');
-            //Assign the value of each option button to be an option from the current question
-            optionBtn.setAttribute('value', option);
-            //Create and assign a class called "options" to each button
-            optionBtn.setAttribute('class', 'options');
-            //Show option from options array on option button             
-            optionBtn.textContent = option;
-            //Append each option button to the options-container div
-            optionButtonsEl.appendChild(optionBtn);
-        }
-        //Add event listener to target click events on any buttons in options container div
-        optionButtonsEl.addEventListener("click", function (event) {
-            //Define selected option as event target
+    questionEl.innerHTML = "";
+    var currentQuestion = questions[questionIndex];
+    questionEl.textContent = currentQuestion.question;
+    optionButtonsEl.innerHTML = "";
+    //For loop to add options from options array for question
+    for (let i = 0; i < currentQuestion.options.length; i++) {
+        var option = currentQuestion.options[i];
+        var optionBtn = document.createElement('button');
+        optionBtn.setAttribute('value', option);
+        optionBtn.setAttribute('class', 'options');
+        optionBtn.textContent = option;
+        //Add event listener to target click events on each option button
+        optionBtn.addEventListener("click", function (event) {
             var selectedOption = event.target;
-            //If the value of the user selected option is not equal to the current question's answer
-            console.log(selectedOption.value)
             if (selectedOption.value != currentQuestion.answer) {
-                //decrease the amount of time left on the clock    
                 timer - 5;
             }
-            //Increase the question index to show the next question when getQuestion called
-            questionIndex++;
-            //call the getQuestion function
-            getQuestion();
+            if (questionIndex != 4) {
+                questionIndex++;
+                getQuestion();
+            }
+            else { endGame(); }
         })
+        optionButtonsEl.appendChild(optionBtn);
     }
-    //Run endGame function if condition above does not evaluate to be true
-    else { endGame(); }
 }
+
 //Define clock function - time decreases and is shown on screen
 function clock() {
     time--;
