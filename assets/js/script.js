@@ -68,7 +68,8 @@ function getQuestion() {
         optionBtn.addEventListener("click", function (event) {
             var selectedOption = event.target;
             if (selectedOption.value != currentQuestion.answer) {
-                timer - 5;
+                time = time - 5;
+                timerCount.textContent = time;
             }
             if (questionIndex != 4) {
                 questionIndex++;
